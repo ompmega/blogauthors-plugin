@@ -1,0 +1,63 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: Author name
+        required: true
+        span: left
+
+    slug:
+        label: Author slug
+        required: true
+        span: right
+        preset:
+            field: name
+            type: slug
+
+tabs:
+    defaultTab: Profile
+    icons:
+        Profile: icon-user
+        Socials: icon-share-alt
+    fields:
+
+        bio:
+            label: Biography
+            type: richeditor
+            commentAbove: Tell us about your accomplishments, what you do for a living, etc.
+
+        socials:
+            type: repeater
+            prompt: Add new link
+            tab: Socials
+            form:
+                fields:
+
+                    text:
+                        label: Text
+                        placeholder: Twitter
+                        span: left
+
+                    url:
+                        label: URL
+                        placeholder: https://twitter.com/octobercms
+                        span: right
+
+                    new_tab:
+                        label: Open in a new tab
+                        type: checkbox
+                        default: true
+
+
+secondaryTabs:
+    fields:
+
+        avatar:
+            label: backend::lang.user.avatar
+            type: fileupload
+            mode: image
+            imageHeight: 250
+            imageWidth: 250

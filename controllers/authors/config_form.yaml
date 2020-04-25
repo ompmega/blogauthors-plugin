@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Author
+
+# Model Form Field configuration
+form: $/ompmega/blogauthors/models/author/fields.yaml
+
+# Model Class name
+modelClass: Ompmega\BlogAuthors\Models\Author
+
+# Default redirect location
+defaultRedirect: ompmega/blogauthors/authors
+
+# Create page
+create:
+    title: Create Author
+    redirect: ompmega/blogauthors/authors/update/:id
+    redirectClose: ompmega/blogauthors/authors
+
+# Update page
+update:
+    title: Edit Author
+    redirect: ompmega/blogauthors/authors
+    redirectClose: ompmega/blogauthors/authors
+
+# Preview page
+preview:
+    title: Preview Author
