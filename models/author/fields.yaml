@@ -19,9 +19,12 @@ fields:
 
 tabs:
     defaultTab: Profile
+    lazy:
+        - Posts
     icons:
         Profile: icon-user
         Socials: icon-share-alt
+        Posts: icon-copy
     fields:
 
         bio:
@@ -50,6 +53,12 @@ tabs:
                         label: Open in a new tab
                         type: checkbox
                         default: true
+
+        posts:
+            context: [update, relationcontroller]
+            label: Posts
+            type: partial
+            tab: Posts
 
 
 secondaryTabs:

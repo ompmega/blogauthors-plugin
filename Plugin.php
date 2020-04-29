@@ -91,6 +91,25 @@ class Plugin extends PluginBase
 
         });
 
+        Event::listen('backend.list.extendColumns', function ($listWidget) {
+            /** @var \Backend\Widgets\Lists $listWidget */
+            if (!$listWidget->getController() instanceof \RainLab\Blog\Controllers\Posts) {
+                return;
+            }
+
+            if (!$listWidget->model instanceof \RainLab\Blog\Models\Post) {
+                return;
+            }
+
+            $listWidget->addColumns([
+                'user' => [
+                    'label' => 'Author',
+                    'relation' => 'user',
+                    'select' => 'name'
+                ]
+            ]);
+        });
+
         \RainLab\Blog\Components\Posts::extend(function ($component) {
             /** @var \RainLab\Blog\Components\Posts $component */
             $component->setProperty('author_slug', [
